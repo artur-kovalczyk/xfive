@@ -1,0 +1,53 @@
+{% set ImgTitle = "" %}
+{% set ImgAlt = "" %}
+
+<section class="o-section">
+  <div class="o-wrapper">
+    <div class="c-tease-shapes">
+      <div class="c-tease-shapes__content">
+        <h1 class="c-tease-shapes__shape__title--big">{{ post.title }}</h1>
+        {{ post.content }}
+      </div>
+      {% if post.meta('shape-images') %}
+        {% for item in post.meta('shape-images') %}
+
+          {% if item.image.title != '' and item.image.alt == '' %}
+            {% set ImgTitle = item.image.title %}
+            {% set ImgAlt = item.image.title %}
+          {% elseif item.image.alt != '' and item.image.title == '' %}
+            {% set ImgTitle = item.image.alt %}
+            {% set ImgAlt = item.image.alt %}
+          {% else %}
+            {% set ImgTitle = item.image.title %}
+            {% set ImgAlt = item.image.alt %}
+          {% endif %}
+
+          <div class="c-tease-shapes__shape">
+            <div class="c-tease-shapes__shape--{{ item.shape }}">
+              <a class="c-tease-shapes__shape__lightbox" href="#image{{ loop.index }}">
+                <img
+                  class="c-tease-shapes__shape__image c-tease-shapes__shape__image--{{ item.shape }}"
+                  src="{{ item.image.url }}" alt="{{ ImgAlt }}" title="{{ ImgTitle }}"/>
+                <div class="c-tease-shapes__shape__overlay overlay--{{ item.shape }}"></div>
+                <div class="c-tease-shapes__shape__content--thumbnail">
+                  {% if ImgTitle != '' %}
+                    <h3 class="c-tease-shapes__shape__title--small">{{ ImgTitle }}</h3>
+                  {% endif %}
+                </div>
+              </a>
+              <div class="c-tease-shapes__shape__target" id="image{{ loop.index }}">
+                <div class="c-tease-shapes__shape__content--full">
+                  {% if ImgTitle != '' %}
+                    <h1 class="c-tease-shapes__shape__title--big">{{ ImgTitle }}</h1>
+                  {% endif %}
+                  <a class="c-tease-shapes__shape__close" href="#"></a>
+                </div>
+                <img src="{{ item.image.url }}" alt="{{ ImgAlt }}" title="{{ ImgTitle }}"/>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      {% endif %}
+    </div>
+  </div>
+</section>

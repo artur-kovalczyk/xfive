@@ -1,0 +1,76 @@
+/* ==========================================================================
+   #POST
+   Includes styles for default WP images classes
+   ========================================================================== */
+
+.c-tease-posts {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 3.3rem;
+
+  @include bp(medium) {
+    margin-top: 6rem;
+  }
+}
+
+.c-tease-posts__item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 0 0 auto;
+  width: 100%;
+  overflow: hidden;
+  margin: 0.5rem 0.5rem 4rem 0.5rem;
+  background-color: $color-white;
+
+  @include bp(medium) {
+    width: calc(50% - 1rem);
+  }
+}
+
+.c-tease-posts__content {
+  padding: 0 0 3rem 0;
+
+  @include bp(medium) {
+    padding: 0 7rem 6rem 0;
+  }
+
+  a {
+    transition: $global-transition;
+  }
+
+  a:hover {
+    color: $color-hover;
+  }
+}
+
+.c-tease-posts__meta {
+  color: $color-text;
+  font-size: 1.6rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.c-tease-posts__meta-sep {
+  display: inline-block;
+  margin: 0 0.8rem;
+}
+
+.c-tease-posts__title {
+  font-size: 1.9rem;
+  line-height: 1.64;
+  margin: 1rem 0;
+
+  @include bp(large) {
+    font-size: 2.1rem;
+    margin: 2rem 0;
+  }
+
+  @include bp(xlarge) {
+    font-size: 2.3rem;
+  }
+
+  @include bp(full) {
+    font-size: 2.5rem;
+  }
+}

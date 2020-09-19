@@ -1,0 +1,219 @@
+/* ==========================================================================
+   #RECRUITMENT TASK
+   Includes styles for Recruitment Task Template
+   ========================================================================== */
+
+$default-width-height: 400px;
+
+%content-rectangle {
+  position: relative;
+  width: $default-width-height;
+  height: $default-width-height;
+  margin: auto;
+  overflow: hidden;
+
+  @at-root #{&}:hover .c-tease-shapes__shape__content--thumbnail {
+    top: 50%;
+    left: 50%;
+    opacity: 1;
+  }
+
+  @at-root #{&}:hover .c-tease-shapes__shape__overlay {
+    opacity: 1;
+  }
+}
+
+img {
+  @include bp(large) {
+    max-width: 800px;
+  }
+}
+
+.c-tease-shapes {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 3.3rem;
+  background: linear-gradient(180deg, #38b3bf 0%, #1695a3 100%);
+
+  &__shape {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 0 0 auto;
+    width: 100%;
+    overflow: hidden;
+    margin: 0.5rem 0.5rem 4rem 0.5rem;
+
+    @include bp(medium) {
+      width: calc(50% - 1rem);
+    }
+
+    &--rectangle {
+      @extend %content-rectangle;
+    }
+
+    &--circle {
+      @extend %content-rectangle;
+
+      border-radius: 50%;
+
+      &:hover {
+        @extend %content-rectangle, :hover;
+      }
+    }
+
+    &__overlay {
+      opacity: 0;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      background: rgba($color-black, 0.5);
+      transition: $global-transition;
+
+      &.overlay--rectangle {
+        border-radius: 0;
+      }
+
+      &.overlay--circle {
+        border-radius: 50%;
+      }
+    }
+
+    &__title {
+      &--small {
+        color: #fff;
+        font-weight: 500;
+        letter-spacing: 0.15em;
+        margin-bottom: 0.5em;
+        text-transform: uppercase;
+      }
+
+      &--big {
+        color: #fff;
+        line-height: 100px;
+        text-align: center;
+        width: 100%;
+      }
+    }
+
+    &__content {
+      &--thumbnail {
+        position: absolute;
+        text-align: center;
+        padding-left: 1em;
+        padding-right: 1em;
+        width: 100%;
+        top: 50%;
+        left: 50%;
+        opacity: 0;
+        transform: translate(-50%, -50%);
+        transition: $global-transition;
+      }
+
+      &--full {
+        position: relative;
+        max-width: 900px;
+        margin: 0 auto;
+        display: block;
+      }
+    }
+
+    &__close {
+      width: 50px;
+      height: 50px;
+      position: absolute;
+      display: block;
+      border: none;
+      top: 20px;
+      right: 0;
+      transition: $global-transition;
+
+      &::before {
+        content: '';
+        display: block;
+        height: 50px;
+        width: 1px;
+        background: $color-white;
+        position: absolute;
+        right: 26px;
+        transform: rotate(45deg);
+      }
+
+      &::after {
+        content: '';
+        display: block;
+        height: 50px;
+        width: 1px;
+        background: $color-white;
+        position: absolute;
+        right: 26px;
+        transform: rotate(-45deg);
+      }
+    }
+
+    &__image {
+      &--circle {
+        width: $default-width-height;
+        height: $default-width-height;
+        margin: -35% 0% 45% 0%;
+        transform: scale(2.8, 1.8);
+        border-radius: 50%;
+      }
+
+      &--rectangle {
+        width: 100%;
+        margin: -48px 0 0 -17px;
+        transform: scale(2.7);
+      }
+    }
+
+    &__target {
+      position: fixed;
+      top: -100%;
+      left: 0;
+      width: 100%;
+      background: #38b3bf;
+      z-index: 3;
+      opacity: 0;
+      transition: $global-transition;
+      overflow: hidden;
+
+      img {
+        display: none;
+        margin: auto;
+        box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.05);
+        box-sizing: border-box;
+        transition: $global-transition;
+      }
+
+      &:target {
+        opacity: 1;
+        top: 0;
+        bottom: 0;
+      }
+
+      &:target img {
+        display: table;
+        width: 100%;
+      }
+    }
+
+    @include bp(small) {
+      margin-top: 6rem;
+    }
+  }
+
+  &__content {
+    max-width: 900px;
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+    line-height: 100px;
+    color: $color-white;
+
+    p {
+      line-height: 1.3rem;
+    }
+  }
+}
