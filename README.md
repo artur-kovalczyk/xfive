@@ -38,7 +38,7 @@ Registered fields to add **Shape Images** to the page using **Advanced Custom Fi
 Added condition to check if there are **Shape Images** added to the page in **Admin Dashboard/Pages/(PAGE_NAME)/Edit**. If so then the **Twig Component** named **shape-images.twig** is being included on the page.
 
 - **wp/wp-content/themes/xfive-chisel/templates/components/shape-images.twig (new added)** - 
-Custom Twig Component having all added in Admin Dashboard **Shape Images** imported from database.
+Custom Twig Component having post content and all added in Admin Dashboard **Shape Images** imported from database.
 
 - **src/styles/components/_tease-shapes.scss (new added)** - 
 Style file for the **Shape Images**.
