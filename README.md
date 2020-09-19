@@ -34,7 +34,7 @@ Project files can be imported in for eg. in IDE like: 'Visual Studio Code' or 'P
 - **wp/wp-content/themes/xfive-chisel/inc/acf-setup.php (new added)** - 
 Registered fields to add **Shape Images** to the page using **Advanced Custom Fields** plugin
 
-- **wp/wp-content/themes/xfive-chisel/page.php (edited only)** - 
+- **wp/wp-content/themes/xfive-chisel/templates/page.twig (edited only)** - 
 Added condition to check if there are **Shape Images** added to the page in **Admin Dashboard/Pages/(PAGE_NAME)/Edit**. If so then the **Twig Component** named **shape-images.twig** is being included on the page.
 
 - **wp/wp-content/themes/xfive-chisel/templates/components/shape-images.twig (new added)** - 
